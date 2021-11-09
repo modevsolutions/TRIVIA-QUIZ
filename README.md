@@ -11,7 +11,7 @@
 ### About Trivia Quiz
 Trivia Quiz  is an app that allows users to play intresting and engaging quiz. Categories includes but not limited to Sports,Animals,Entertainment,Science and nature,General knowledge etc
 ### Screen Shots
-![Movie screenshot](https://github.com/modevsolutions/TRIVIA-QUIZ/blob/main/src/trivia%20image-1.png) ![ MOVIE screenshot](https://github.com/modevsolutions/TRIVIA-QUIZ/blob/main/src/trivia%20image-2.png)
+![Quiz app screenshot](https://github.com/modevsolutions/TRIVIA-QUIZ/blob/main/src/trivia%20image-1.png) ![ Quiz app screenshot](https://github.com/modevsolutions/TRIVIA-QUIZ/blob/main/src/trivia%20quiz-3.png)
 ### Link
 - [live site](https://moviesvault.modevsolutions.com/)
 ## Coding Process
