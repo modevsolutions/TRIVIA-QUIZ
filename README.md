@@ -13,7 +13,7 @@ Trivia Quiz  is an app that allows users to play intresting and engaging quiz. C
 ### Screen Shots
 ![Quiz app screenshot](https://github.com/modevsolutions/TRIVIA-QUIZ/blob/main/src/trivia%20image-1.png) ![ Quiz app screenshot](https://github.com/modevsolutions/TRIVIA-QUIZ/blob/main/src/trivia%20quiz-3.png)
 ### Link
-- [live site](https://moviesvault.modevsolutions.com/)
+- [live site](https://triviaquiz.modevsolutions.com/)
 ## Coding Process
 #### Built With
 - HTML
