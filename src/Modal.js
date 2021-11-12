@@ -7,7 +7,11 @@ const Modal = () => {
   return (
     <div className={isModal ? 'modal-container isOpen' : 'modal-container'}>
       <article className='modal-content'>
-        <h3>congrats!</h3>
+        <h3>
+          {correct >= questions.length / 2
+            ? 'congrats!!!'
+            : 'you can do better'}
+        </h3>
         <p>
           You answered {((correct / questions.length) * 100).toFixed(0)}% of
           qustions correctly

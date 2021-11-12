@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 
 const table = {
   sports: 21,
@@ -31,6 +31,8 @@ const AppProvider = ({ children }) => {
     category: 'animals',
     difficulty: 'easy',
   });
+  const [start, setStart] = useState(1);
+  const [instruction, setInstruction] = useState(false);
 
   const fetchData = async (url) => {
     setLoading(true);
@@ -44,6 +46,7 @@ const AppProvider = ({ children }) => {
         setLoading(false);
         setWaiting(false);
         setError(false);
+        setInstruction(true);
       } else {
         setWaiting(true);
         setError(true);
@@ -75,16 +78,19 @@ const AppProvider = ({ children }) => {
 
   const openModal = () => {
     setIsmodal(true);
+    setIndex(0);
   };
   const closeModal = () => {
     setWaiting(true);
     setIsmodal(false);
     setCorrect(0);
+    setStart(0);
   };
 
   const handleForm = (e) => {
     const name = e.target.name;
     const value = e.target.value;
+
     setQuiz({ ...quiz, [name]: value });
   };
 
@@ -94,6 +100,19 @@ const AppProvider = ({ children }) => {
     const url = `${API_ENDPOINT}amount=${amount}&category=${table[category]}&difficulty=${difficulty}&type=multiple`;
     fetchData(url);
   };
+
+  const handleInstruction = () => {
+    setInstruction(false);
+    setStart(5);
+  };
+
+  useEffect(() => {
+    if (start === 5) {
+      setTimeout(() => {
+        openModal();
+      }, 30000 * questions.length);
+    }
+  }, [start === 5]);
 
   return (
     <AppContext.Provider
@@ -111,6 +130,8 @@ const AppProvider = ({ children }) => {
         handleSubmit,
         quiz,
         error,
+        instruction,
+        handleInstruction,
       }}
     >
       {children}

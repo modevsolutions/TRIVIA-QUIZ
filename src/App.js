@@ -4,6 +4,7 @@ import { useGlobalContext } from './context';
 import SetupForm from './SetupForm';
 import Loading from './Loading';
 import Modal from './Modal';
+import Instruction from './instruction';
 function App() {
   const {
     correct,
@@ -13,6 +14,7 @@ function App() {
     questions,
     nextQuestion,
     correctAnswer,
+    instruction,
   } = useGlobalContext();
   if (waiting) {
     return <SetupForm />;
@@ -35,34 +37,37 @@ function App() {
   return (
     <main>
       <Modal />
-      <section className='quiz'>
-        <p className='correct-answers'>
-          correct answers : {correct}/{index}
-        </p>
-        <article className='container'>
-          <h2 dangerouslySetInnerHTML={{ __html: question }} />
-          {answers.map((answer, index) => {
-            return (
-              <button
-                className='answer-btn'
-                key={index}
-                dangerouslySetInnerHTML={{ __html: answer }}
-                onClick={() => {
-                  correctAnswer(answer === correct_answer);
-                }}
-              />
-            );
-          })}
-        </article>
-        <button
-          className='next-question'
-          onClick={() => {
-            nextQuestion();
-          }}
-        >
-          next Question
-        </button>
-      </section>
+      <Instruction />
+      {!instruction && (
+        <section className='quiz'>
+          <p className='correct-answers'>
+            correct answers : {correct}/{index}
+          </p>
+          <article className='container'>
+            <h2 dangerouslySetInnerHTML={{ __html: question }} />
+            {answers.map((answer, index) => {
+              return (
+                <button
+                  className='answer-btn'
+                  key={index}
+                  dangerouslySetInnerHTML={{ __html: answer }}
+                  onClick={() => {
+                    correctAnswer(answer === correct_answer);
+                  }}
+                />
+              );
+            })}
+          </article>
+          <button
+            className='next-question'
+            onClick={() => {
+              nextQuestion();
+            }}
+          >
+            next Question
+          </button>
+        </section>
+      )}
     </main>
   );
 }
